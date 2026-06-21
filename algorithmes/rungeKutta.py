@@ -1,9 +1,7 @@
 
 class RungeKutta:
     def __init__(self, a: int, b: int, h: float, alpha: int):
-        self.a = a
-        self.b = b
-        self.h = h
+        self.a, self.b, self.h = a, b, h
         self.alpha = alpha
         self.approx = []
 
@@ -14,17 +12,17 @@ class RungeKutta:
         self.approx.append((t, w))
 
     def execute(self):
-        self.N = int((self.b - self.a) / self.h)
-        self.t = self.a
-        self.w = self.alpha
-        self.output(self.t, self.w)
+        N = int((self.b - self.a) / self.h)
+        t = self.a
+        w = self.alpha
+        self.output(t, w)
 
-        for i in range(1, self.N + 1):
-            k1 = self.h * self.f(self.t, self.w)
-            k2 = self.h * self.f(self.t + self.h / 2, self.w + k1 / 2)
-            k3 = self.h * self.f(self.t + self.h / 2, self.w + k2 / 2)
-            k4 = self.h * self.f(self.t + self.h, self.w + k3)
-            self.w += (k1 + 2 * k2 + 2 * k3 + k4) / 6
-            self.t = self.a + i * self.h
-            self.output(self.t, self.w)
+        for i in range(1, N + 1):
+            k1 = self.h * self.f(t, w)
+            k2 = self.h * self.f(t + self.h / 2, w + k1 / 2)
+            k3 = self.h * self.f(t + self.h / 2, w + k2 / 2)
+            k4 = self.h * self.f(t + self.h, w + k3)
+            w += (k1 + 2 * k2 + 2 * k3 + k4) / 6
+            t = self.a + i * self.h
+            self.output(t, w)
         return self.approx

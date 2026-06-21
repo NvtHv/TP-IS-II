@@ -1,9 +1,7 @@
 
 class Euler:
     def __init__(self, a: int, b: int, h: float, alpha: int):
-        self.a = a
-        self.b = b
-        self.h = h
+        self.a, self.b, self.h = a, b, h
         self.alpha = alpha
         self.approx = []
     
@@ -14,13 +12,13 @@ class Euler:
         self.approx.append((t, w))
 
     def execute(self):
-        self.N = int((self.b - self.a) / self.h)
-        self.t = self.a
-        self.w = self.alpha
-        self.output(self.t, self.w)
-        for i in range(1, self.N + 1):
-            self.w += self.h * self.f(self.t, self.w)
-            self.t = self.a + i * self.h
-            self.output(self.t, self.w)
+        N = int((self.b - self.a) / self.h)
+        t = self.a
+        w = self.alpha
+        self.output(t, w)
+        for i in range(1, N + 1):
+            w += self.h * self.f(t, w)
+            t = self.a + i * self.h
+            self.output(t, w)
         return self.approx
             
