@@ -43,7 +43,7 @@ afficher(approx)
 print("b) - Comparaison de celle-ci avec la valeur actuelle de y:")
 t = 0
 for i in range(0, 21):
-    print(f"\tt: {t:.1f}\t\tw: {approx[i][1]:.6f}\t\ty: {exp(-t) + t:.6f}")
+    print(f"\tt: {t:.1f}\t\tw: {approx[i][1]:.6f}\t\ty({t:.1f}): {exp(-t) + t:.6f}")
     t += 0.1
 
 
@@ -57,5 +57,5 @@ afficher(approx)
 print("b) - Comparaison de celle-ci avec la valeur actuelle de y:")
 t = 1
 for i in range(0, 11):
-    print(f"\tt: {t:.1f}\t\tw: {approx[i][1]:.6f}\t\ty: {-1 / t:.6f}")
+    print(f"\tt: {t:.1f}\t\tw: {approx[i][1]:.6f}\t\ty({t:.1f}): {-1 / t:.6f}")
     t += 0.1
