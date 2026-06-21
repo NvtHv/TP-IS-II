@@ -7,9 +7,6 @@ class RungeKutta:
         self.alpha = alpha
         self.approx = []
 
-    def y(self, t):
-        return -1 / t
-
     def f(self, t, w):
         return (1 / t**2) - (w / t) - w**2
     
